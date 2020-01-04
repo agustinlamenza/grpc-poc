@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package api;
+
+message SumRequest {
+    int32 X = 1;
+    int32 Y = 2;
+}
+
+message SumResponse {
+    int32 Result = 1;
+}
+
+service SumService {
+    rpc Sum(SumRequest) returns (SumResponse) {}
+}
