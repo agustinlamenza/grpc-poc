@@ -18,7 +18,7 @@ func main() {
 
 	s := grpc.NewServer()
 	srv := &handlers.Server{}
-	api.RegisterSumServiceServer(s, srv)
+	api.RegisterCalculatorServiceServer(s, srv)
 
 	if err := s.Serve(lis); err != nil {
 		log.Fatalf("Error! : %v", err)
