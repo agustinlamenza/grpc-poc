@@ -20,6 +20,9 @@ message FibonacciResponse {
 }
 
 service CalculatorService {
+    // Unary
     rpc Sum(SumRequest) returns (SumResponse) {}
+
+    // Server streaming
     rpc Fibonacci(FibonacciRequest) returns (stream FibonacciResponse) {}
 }
