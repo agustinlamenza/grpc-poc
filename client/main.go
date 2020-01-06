@@ -41,7 +41,7 @@ func main() {
 	}
 	log.Printf("%v + %v = %v", arg.GetX(), arg.GetY(), reply.GetResult())
 
-	a := &api.FibonacciRequest{Number: int64(99999999999)}
+	a := &api.FibonacciRequest{Number: int64(999999)}
 
 	stream, err := c.Fibonacci(context.Background(), a)
 	if err != nil {
@@ -78,4 +78,40 @@ func main() {
 	}
 
 	log.Printf("El average is: %v", res.GetAvr())
+
+	st, err := c.Max(context.Background())
+	if err != nil {
+		log.Fatalf("Error: %v", err)
+	}
+
+	ch := make(chan int)
+
+	go func() {
+		for _, n := range numbers {
+			time.Sleep(200 * time.Millisecond)
+			st.Send(&api.MaxRequest{Number: n})
+			log.Printf("Number OUT: %v", n)
+		}
+		if err := st.CloseSend(); err != nil {
+			log.Fatalf("Error while closing: %v", err)
+		}
+	}()
+
+	go func() {
+		for {
+			res, err := st.Recv()
+			if err == io.EOF {
+				break
+			}
+			if err != nil {
+				log.Fatalf("Error while getting the result: %v", err)
+			}
+			log.Printf("Number IN: %v", res.GetMaxNumber())
+		}
+		close(ch)
+	}()
+
+	<-ch
+
+	log.Println("THE END! :)")
 }

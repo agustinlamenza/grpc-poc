@@ -27,6 +27,14 @@ message ArvResponse {
     double Avr = 1;
 }
 
+message MaxRequest {
+    int64 Number = 1;
+}
+
+message MaxResponse {
+    int64 MaxNumber = 1;
+}
+
 service CalculatorService {
     // Unary
     rpc Sum(SumRequest) returns (SumResponse) {}
@@ -36,4 +44,7 @@ service CalculatorService {
 
     // Client streaming
     rpc Average(stream AvrRequest) returns (ArvResponse) {}
+
+    // BiDi streaming
+    rpc Max(stream MaxRequest) returns (stream MaxResponse) {}
 }

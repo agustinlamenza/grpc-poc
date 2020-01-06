@@ -48,3 +48,20 @@ func (s *Server) Average(stream api.CalculatorService_AverageServer) error {
 		numbers = append(numbers, req.GetNumber())
 	}
 }
+
+func (s *Server) Max(stream api.CalculatorService_MaxServer) error {
+	for {
+		req, err := stream.Recv()
+		if err == io.EOF {
+			return nil
+		}
+		if err != nil {
+			log.Fatalf("Error: %v", err)
+			return err
+		}
+
+		data := req.GetNumber()
+
+		stream.Send(&api.MaxResponse{MaxNumber: data * data})
+	}
+}
