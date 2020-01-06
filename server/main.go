@@ -13,7 +13,7 @@ import (
 func main() {
 	lis, err := net.Listen("tcp", "0.0.0.0:50051")
 	if err != nil {
-		log.Fatalf("Error! : %v", err)
+		log.Fatalf("Error: %v", err)
 	}
 
 	s := grpc.NewServer()
@@ -21,6 +21,6 @@ func main() {
 	api.RegisterCalculatorServiceServer(s, srv)
 
 	if err := s.Serve(lis); err != nil {
-		log.Fatalf("Error! : %v", err)
+		log.Fatalf("Error: %v", err)
 	}
 }

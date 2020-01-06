@@ -188,30 +188,113 @@ func (m *FibonacciResponse) GetNumber() int64 {
 	return 0
 }
 
+type AvrRequest struct {
+	Number               int64    `protobuf:"varint,1,opt,name=Number,proto3" json:"Number,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *AvrRequest) Reset()         { *m = AvrRequest{} }
+func (m *AvrRequest) String() string { return proto.CompactTextString(m) }
+func (*AvrRequest) ProtoMessage()    {}
+func (*AvrRequest) Descriptor() ([]byte, []int) {
+	return fileDescriptor_00212fb1f9d3bf1c, []int{4}
+}
+
+func (m *AvrRequest) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_AvrRequest.Unmarshal(m, b)
+}
+func (m *AvrRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_AvrRequest.Marshal(b, m, deterministic)
+}
+func (m *AvrRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_AvrRequest.Merge(m, src)
+}
+func (m *AvrRequest) XXX_Size() int {
+	return xxx_messageInfo_AvrRequest.Size(m)
+}
+func (m *AvrRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_AvrRequest.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_AvrRequest proto.InternalMessageInfo
+
+func (m *AvrRequest) GetNumber() int64 {
+	if m != nil {
+		return m.Number
+	}
+	return 0
+}
+
+type ArvResponse struct {
+	Avr                  float64  `protobuf:"fixed64,1,opt,name=Avr,proto3" json:"Avr,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *ArvResponse) Reset()         { *m = ArvResponse{} }
+func (m *ArvResponse) String() string { return proto.CompactTextString(m) }
+func (*ArvResponse) ProtoMessage()    {}
+func (*ArvResponse) Descriptor() ([]byte, []int) {
+	return fileDescriptor_00212fb1f9d3bf1c, []int{5}
+}
+
+func (m *ArvResponse) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ArvResponse.Unmarshal(m, b)
+}
+func (m *ArvResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ArvResponse.Marshal(b, m, deterministic)
+}
+func (m *ArvResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ArvResponse.Merge(m, src)
+}
+func (m *ArvResponse) XXX_Size() int {
+	return xxx_messageInfo_ArvResponse.Size(m)
+}
+func (m *ArvResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_ArvResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ArvResponse proto.InternalMessageInfo
+
+func (m *ArvResponse) GetAvr() float64 {
+	if m != nil {
+		return m.Avr
+	}
+	return 0
+}
+
 func init() {
 	proto.RegisterType((*SumRequest)(nil), "api.SumRequest")
 	proto.RegisterType((*SumResponse)(nil), "api.SumResponse")
 	proto.RegisterType((*FibonacciRequest)(nil), "api.FibonacciRequest")
 	proto.RegisterType((*FibonacciResponse)(nil), "api.FibonacciResponse")
+	proto.RegisterType((*AvrRequest)(nil), "api.AvrRequest")
+	proto.RegisterType((*ArvResponse)(nil), "api.ArvResponse")
 }
 
 func init() { proto.RegisterFile("api.proto", fileDescriptor_00212fb1f9d3bf1c) }
 
 var fileDescriptor_00212fb1f9d3bf1c = []byte{
-	// 210 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x6c, 0x90, 0xcf, 0x4b, 0x80, 0x30,
-	0x1c, 0xc5, 0x5b, 0x92, 0xe0, 0xb7, 0x20, 0x1d, 0x24, 0xe2, 0x29, 0x06, 0x81, 0x18, 0x48, 0xd4,
-	0xbd, 0x4b, 0xd0, 0xb1, 0xc3, 0xbc, 0xe8, 0x71, 0x8e, 0x1d, 0x06, 0xea, 0xd6, 0x7e, 0x74, 0xed,
-	0x5f, 0x0f, 0xa7, 0x66, 0x48, 0xc7, 0xcf, 0xe3, 0xb3, 0xb7, 0xbd, 0x41, 0xc2, 0xb4, 0x6c, 0xb4,
-	0x51, 0x4e, 0xe1, 0x88, 0x69, 0x49, 0x2a, 0x80, 0xd6, 0x4f, 0x54, 0x7c, 0x7a, 0x61, 0x1d, 0xbe,
-	0x01, 0xd4, 0x15, 0xe8, 0x1e, 0x55, 0x57, 0x14, 0x75, 0x0b, 0xf5, 0xc5, 0xe5, 0x4a, 0x3d, 0x79,
-	0x80, 0xeb, 0x60, 0x5a, 0xad, 0x66, 0x2b, 0x70, 0x0e, 0x31, 0x15, 0xd6, 0x8f, 0x6e, 0xf3, 0x37,
-	0x22, 0x35, 0xa4, 0xef, 0x72, 0x50, 0x33, 0xe3, 0x5c, 0xee, 0xb5, 0x39, 0xc4, 0x1f, 0x7e, 0x1a,
-	0x84, 0x09, 0x6e, 0x44, 0x37, 0x22, 0x8f, 0x90, 0xfd, 0x71, 0x8f, 0xe2, 0xff, 0xe4, 0xe7, 0x6f,
-	0xc8, 0xde, 0xd8, 0xc8, 0xfd, 0xc8, 0x9c, 0x32, 0xad, 0x30, 0x5f, 0x92, 0x0b, 0x5c, 0x43, 0xd4,
-	0xfa, 0x09, 0xdf, 0x36, 0xcb, 0xac, 0x63, 0x48, 0x99, 0x1e, 0xc1, 0x5a, 0x4b, 0x2e, 0xf0, 0x2b,
-	0x24, 0xbf, 0xb7, 0xe1, 0xbb, 0x20, 0x9c, 0x5f, 0x5a, 0xe6, 0xe7, 0x78, 0x3f, 0xfd, 0x84, 0x86,
-	0x38, 0x7c, 0xdb, 0xcb, 0x4f, 0x00, 0x00, 0x00, 0xff, 0xff, 0x65, 0xc6, 0x50, 0xe7, 0x43, 0x01,
+	// 258 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x84, 0x91, 0x41, 0x4b, 0xc3, 0x30,
+	0x14, 0xc7, 0x17, 0x8b, 0x95, 0xfd, 0x27, 0xd8, 0x05, 0x2c, 0x63, 0x17, 0x25, 0x28, 0x94, 0x09,
+	0x63, 0xe8, 0x5d, 0x28, 0x82, 0x47, 0x0f, 0xe9, 0x65, 0x3b, 0xa6, 0x25, 0x48, 0xa0, 0x5d, 0x6a,
+	0xda, 0xe4, 0x7b, 0xf9, 0x0d, 0xa5, 0x6d, 0xb6, 0x8e, 0x21, 0xec, 0x96, 0xff, 0xe3, 0x97, 0xdf,
+	0xcb, 0x7b, 0xc1, 0x54, 0xd4, 0x6a, 0x5d, 0x1b, 0xdd, 0x6a, 0x1a, 0x88, 0x5a, 0xb1, 0x04, 0xc8,
+	0x6c, 0xc5, 0xe5, 0x8f, 0x95, 0x4d, 0x4b, 0x6f, 0x41, 0xb6, 0x0b, 0xf2, 0x48, 0x92, 0x6b, 0x4e,
+	0xb6, 0x5d, 0xda, 0x2d, 0xae, 0x86, 0xb4, 0x63, 0xcf, 0x98, 0xf5, 0x64, 0x53, 0xeb, 0x7d, 0x23,
+	0x69, 0x8c, 0x90, 0xcb, 0xc6, 0x96, 0xad, 0xe7, 0x7d, 0x62, 0x2b, 0x44, 0x9f, 0x2a, 0xd7, 0x7b,
+	0x51, 0x14, 0xea, 0xa0, 0x8d, 0x11, 0x7e, 0xd9, 0x2a, 0x97, 0xa6, 0x67, 0x03, 0xee, 0x13, 0x7b,
+	0xc1, 0xfc, 0x84, 0x1d, 0xc5, 0xff, 0xc2, 0x4f, 0x40, 0xea, 0xcc, 0x25, 0xe5, 0x03, 0x66, 0xa9,
+	0x71, 0x47, 0x59, 0x84, 0x20, 0x75, 0x03, 0x43, 0x78, 0x77, 0x7c, 0xfd, 0x25, 0x98, 0x7f, 0x88,
+	0xb2, 0xb0, 0xa5, 0x68, 0xb5, 0xc9, 0xa4, 0x71, 0xaa, 0x90, 0x74, 0x85, 0x20, 0xb3, 0x15, 0xbd,
+	0x5b, 0x77, 0xeb, 0x19, 0x17, 0xb2, 0x8c, 0xc6, 0xc2, 0x60, 0x64, 0x13, 0xfa, 0x8e, 0xe9, 0xf1,
+	0xd5, 0xf4, 0xbe, 0x07, 0xce, 0x27, 0x5e, 0xc6, 0xe7, 0xe5, 0xc3, 0xed, 0x0d, 0xa1, 0x1b, 0xdc,
+	0xa4, 0x4e, 0x1a, 0xf1, 0x2d, 0x7d, 0xbf, 0x71, 0x2c, 0xdf, 0xef, 0x64, 0x02, 0x36, 0x49, 0x48,
+	0x1e, 0xf6, 0x1f, 0xf6, 0xf6, 0x17, 0x00, 0x00, 0xff, 0xff, 0x68, 0x7c, 0x08, 0x8f, 0xbd, 0x01,
 	0x00, 0x00,
 }
 
@@ -227,8 +310,12 @@ const _ = grpc.SupportPackageIsVersion4
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://godoc.org/google.golang.org/grpc#ClientConn.NewStream.
 type CalculatorServiceClient interface {
+	// Unary
 	Sum(ctx context.Context, in *SumRequest, opts ...grpc.CallOption) (*SumResponse, error)
+	// Server streaming
 	Fibonacci(ctx context.Context, in *FibonacciRequest, opts ...grpc.CallOption) (CalculatorService_FibonacciClient, error)
+	// Client streaming
+	Average(ctx context.Context, opts ...grpc.CallOption) (CalculatorService_AverageClient, error)
 }
 
 type calculatorServiceClient struct {
@@ -280,10 +367,48 @@ func (x *calculatorServiceFibonacciClient) Recv() (*FibonacciResponse, error) {
 	return m, nil
 }
 
+func (c *calculatorServiceClient) Average(ctx context.Context, opts ...grpc.CallOption) (CalculatorService_AverageClient, error) {
+	stream, err := c.cc.NewStream(ctx, &_CalculatorService_serviceDesc.Streams[1], "/api.CalculatorService/Average", opts...)
+	if err != nil {
+		return nil, err
+	}
+	x := &calculatorServiceAverageClient{stream}
+	return x, nil
+}
+
+type CalculatorService_AverageClient interface {
+	Send(*AvrRequest) error
+	CloseAndRecv() (*ArvResponse, error)
+	grpc.ClientStream
+}
+
+type calculatorServiceAverageClient struct {
+	grpc.ClientStream
+}
+
+func (x *calculatorServiceAverageClient) Send(m *AvrRequest) error {
+	return x.ClientStream.SendMsg(m)
+}
+
+func (x *calculatorServiceAverageClient) CloseAndRecv() (*ArvResponse, error) {
+	if err := x.ClientStream.CloseSend(); err != nil {
+		return nil, err
+	}
+	m := new(ArvResponse)
+	if err := x.ClientStream.RecvMsg(m); err != nil {
+		return nil, err
+	}
+	return m, nil
+}
+
 // CalculatorServiceServer is the server API for CalculatorService service.
 type CalculatorServiceServer interface {
+	// Unary
 	Sum(context.Context, *SumRequest) (*SumResponse, error)
+	// Server streaming
 	Fibonacci(*FibonacciRequest, CalculatorService_FibonacciServer) error
+	// Client streaming
+	Average(CalculatorService_AverageServer) error
 }
 
 // UnimplementedCalculatorServiceServer can be embedded to have forward compatible implementations.
@@ -295,6 +420,9 @@ func (*UnimplementedCalculatorServiceServer) Sum(ctx context.Context, req *SumRe
 }
 func (*UnimplementedCalculatorServiceServer) Fibonacci(req *FibonacciRequest, srv CalculatorService_FibonacciServer) error {
 	return status.Errorf(codes.Unimplemented, "method Fibonacci not implemented")
+}
+func (*UnimplementedCalculatorServiceServer) Average(srv CalculatorService_AverageServer) error {
+	return status.Errorf(codes.Unimplemented, "method Average not implemented")
 }
 
 func RegisterCalculatorServiceServer(s *grpc.Server, srv CalculatorServiceServer) {
@@ -340,6 +468,32 @@ func (x *calculatorServiceFibonacciServer) Send(m *FibonacciResponse) error {
 	return x.ServerStream.SendMsg(m)
 }
 
+func _CalculatorService_Average_Handler(srv interface{}, stream grpc.ServerStream) error {
+	return srv.(CalculatorServiceServer).Average(&calculatorServiceAverageServer{stream})
+}
+
+type CalculatorService_AverageServer interface {
+	SendAndClose(*ArvResponse) error
+	Recv() (*AvrRequest, error)
+	grpc.ServerStream
+}
+
+type calculatorServiceAverageServer struct {
+	grpc.ServerStream
+}
+
+func (x *calculatorServiceAverageServer) SendAndClose(m *ArvResponse) error {
+	return x.ServerStream.SendMsg(m)
+}
+
+func (x *calculatorServiceAverageServer) Recv() (*AvrRequest, error) {
+	m := new(AvrRequest)
+	if err := x.ServerStream.RecvMsg(m); err != nil {
+		return nil, err
+	}
+	return m, nil
+}
+
 var _CalculatorService_serviceDesc = grpc.ServiceDesc{
 	ServiceName: "api.CalculatorService",
 	HandlerType: (*CalculatorServiceServer)(nil),
@@ -354,6 +508,11 @@ var _CalculatorService_serviceDesc = grpc.ServiceDesc{
 			StreamName:    "Fibonacci",
 			Handler:       _CalculatorService_Fibonacci_Handler,
 			ServerStreams: true,
+		},
+		{
+			StreamName:    "Average",
+			Handler:       _CalculatorService_Average_Handler,
+			ClientStreams: true,
 		},
 	},
 	Metadata: "api.proto",
