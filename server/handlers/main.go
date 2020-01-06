@@ -22,7 +22,7 @@ func (s *Server) Fibonacci(req *api.FibonacciRequest, stream api.CalculatorServi
 	for i, j := 0, 1; int64(i) < n; i, j = i+j, i {
 		f := &api.FibonacciResponse{Number: int64(i)}
 		stream.Send(f)
-		time.Sleep(200 * time.Millisecond)
+		time.Sleep(100 * time.Millisecond)
 	}
 
 	return nil

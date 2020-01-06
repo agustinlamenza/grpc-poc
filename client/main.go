@@ -41,7 +41,7 @@ func main() {
 	}
 	log.Printf("%v + %v = %v", arg.GetX(), arg.GetY(), reply.GetResult())
 
-	a := &api.FibonacciRequest{Number: int64(999999)}
+	a := &api.FibonacciRequest{Number: int64(9999)}
 
 	stream, err := c.Fibonacci(context.Background(), a)
 	if err != nil {
