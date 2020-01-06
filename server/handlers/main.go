@@ -45,7 +45,6 @@ func (s *Server) Average(stream api.CalculatorService_AverageServer) error {
 		if err != nil {
 			log.Fatalf("Error: %v", err)
 		}
-
 		numbers = append(numbers, req.GetNumber())
 	}
 }
