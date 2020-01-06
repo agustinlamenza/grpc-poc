@@ -12,11 +12,13 @@ import (
 // Server is the struct used for this grpc server
 type Server struct{}
 
+// Sum is the handler that implements unary call
 func (s *Server) Sum(ctx context.Context, req *api.SumRequest) (*api.SumResponse, error) {
 	result := req.GetX() + req.GetY()
 	return &api.SumResponse{Result: result}, nil
 }
 
+// Fibonacci is the handler that implements client streaming
 func (s *Server) Fibonacci(req *api.FibonacciRequest, stream api.CalculatorService_FibonacciServer) error {
 	n := int64(req.GetNumber())
 	for i, j := 0, 1; int64(i) < n; i, j = i+j, i {
@@ -28,6 +30,7 @@ func (s *Server) Fibonacci(req *api.FibonacciRequest, stream api.CalculatorServi
 	return nil
 }
 
+// Average is the handler that implements server streaming
 func (s *Server) Average(stream api.CalculatorService_AverageServer) error {
 	numbers := []int64{}
 	for {
@@ -49,6 +52,7 @@ func (s *Server) Average(stream api.CalculatorService_AverageServer) error {
 	}
 }
 
+// Max is the handler that implementes bidirectional streaming
 func (s *Server) Max(stream api.CalculatorService_MaxServer) error {
 	for {
 		req, err := stream.Recv()
